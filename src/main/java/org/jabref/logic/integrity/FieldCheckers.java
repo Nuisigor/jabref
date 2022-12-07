@@ -35,7 +35,7 @@ public class FieldCheckers {
         }
         fieldCheckers.put(StandardField.BOOKTITLE, new BooktitleChecker());
         fieldCheckers.put(StandardField.TITLE, new BracketChecker());
-        fieldCheckers.put(StandardField.TITLE, new TitleChecker(databaseContext));
+//        fieldCheckers.put(StandardField.TITLE, new TitleChecker(databaseContext));
         fieldCheckers.put(StandardField.DOI, new DoiValidityChecker());
         fieldCheckers.put(StandardField.EDITION, new EditionChecker(databaseContext, allowIntegerEdition));
         fieldCheckers.put(StandardField.FILE, new FileChecker(databaseContext, filePreferences));
