@@ -36,6 +36,7 @@ public class IntegrityCheck {
                 new BibStringChecker(),
                 new HTMLCharacterChecker(),
                 new EntryLinkChecker(bibDatabaseContext.getDatabase()),
+                new UndefinedChecker(bibDatabaseContext.getDatabase()),
                 new CitationKeyDeviationChecker(bibDatabaseContext, citationKeyPatternPreferences),
                 new CitationKeyDuplicationChecker(bibDatabaseContext.getDatabase())
         ));
