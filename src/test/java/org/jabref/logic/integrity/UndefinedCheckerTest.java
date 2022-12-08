@@ -58,8 +58,32 @@ public class UndefinedCheckerTest {
     }
 
     @Test
-    void emptyCitationKey() {
+    void stringIsDefinedStart() {
+        BibEntry entry = new BibEntry().withField(StandardField.AUTHOR, "#defined# this string at start")
+                                       .withField(StandardField.TITLE, "The Title")
+                                       .withField(StandardField.YEAR, "2021");
+        assertEquals(Collections.emptyList(), checker.check(entry));
+    }
+
+    @Test
+    void stringIsDefinedMiddle() {
+        BibEntry entry = new BibEntry().withField(StandardField.AUTHOR, "this string is #defined# at the middle")
+                                       .withField(StandardField.TITLE, "The Title")
+                                       .withField(StandardField.YEAR, "2021");
+        assertEquals(Collections.emptyList(), checker.check(entry));
+    }
+
+    @Test
+    void stringIsDefinedEnd() {
         BibEntry entry = new BibEntry().withField(StandardField.AUTHOR, "This string is #defined#")
+                                       .withField(StandardField.TITLE, "The Title")
+                                       .withField(StandardField.YEAR, "2021");
+        assertEquals(Collections.emptyList(), checker.check(entry));
+    }
+
+    @Test
+    void noString() {
+        BibEntry entry = new BibEntry().withField(StandardField.AUTHOR, "There is no string")
                                        .withField(StandardField.TITLE, "The Title")
                                        .withField(StandardField.YEAR, "2021");
         assertEquals(Collections.emptyList(), checker.check(entry));
